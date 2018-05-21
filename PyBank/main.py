@@ -67,5 +67,5 @@ min_index = revenue.index(min_value)
 max_date = month_date[max_index]
 min_date = month_date[min_index]
 
-
+# print output
 print('','Financial Analysis', '-----------------------', 'Total Months: ' + str(num_months), 'Total Revenue: $' + str(total_revenue), 'Average Revenue Change: $' + str(avg_revenue),'Greatest Increase in Revenue: ' + max_date + '($' + ' ' + str(max_value) + ')', 'Greatest Decrease in Revenue: ' + min_date + '($' + ' ' + str(min_value) + ')', '',sep='\n',)
