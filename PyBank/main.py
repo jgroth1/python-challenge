@@ -24,7 +24,8 @@ import csv
 from statistics import mean
 
 # define path for file to be analyzed
-file_path = os.path.join('../Data_Files/PyBank/raw_data', 'budget_data_1.csv')
+file = 'budget_data_2.csv'
+file_path = os.path.join('../Data_Files/PyBank/raw_data', file)
 # open file within the with statement save file object to bankfile
 with open(file_path, newline='') as bankfile:
     # read using csv.reader save to bankdata
