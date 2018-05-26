@@ -24,8 +24,11 @@ import csv
 from statistics import mean
 
 # define path for file to be analyzed
-file = 'budget_data_2.csv'
-file_path = os.path.join('../Data_Files/PyBank/raw_data', file)
+file_name = 'budget_data_1'
+path = '../Data_Files/PyBank/raw_data'
+form = '.csv'
+file = file_name + form
+file_path = os.path.join(path, file)
 # open file within the with statement save file object to bankfile
 with open(file_path, newline='') as bankfile:
     # read using csv.reader save to bankdata
@@ -69,4 +72,18 @@ max_date = month_date[max_index]
 min_date = month_date[min_index]
 
 # print output
-print('','Financial Analysis', '-----------------------', 'Total Months: ' + str(num_months), 'Total Revenue: $' + str(total_revenue), 'Average Revenue Change: $' + str(avg_revenue),'Greatest Increase in Revenue: ' + max_date + '($' + ' ' + str(max_value) + ')', 'Greatest Decrease in Revenue: ' + min_date + '($' + ' ' + str(min_value) + ')', '',sep='\n',)
+print('','Financial Analysis', '-----------------------', 'Total Months: ' + str(num_months), 'Total Revenue: $' + str(total_revenue), 'Average Revenue Change: $' + str(avg_revenue),'Greatest Increase in Revenue: ' + max_date + ' ' + '($' + str(max_value) + ')', 'Greatest Decrease in Revenue: ' + min_date + ' ' + '($' + str(min_value) + ')', '',sep='\n')
+
+out = 'Output_'
+form = '.txt'
+file = out + file_name + form 
+output_file = os.path.join(file)
+with open(output_file, 'w') as outfile:
+    outfile.writelines('Financial Analysis')
+    outfile.writelines('\n' + '-----------------------')
+    outfile.writelines('\n' + 'Total Months: ' + str(num_months))
+    outfile.writelines('\n' + 'Total Revenue: $' + str(total_revenue))
+    outfile.writelines('\n' + 'Average Revenue Change: $' + str(avg_revenue))
+    outfile.writelines('\n' + 'Greatest Increase in Revenue: ' + max_date + ' ' + '($' + str(max_value) + ')')
+    outfile.writelines('\n' + 'Greatest Decrease in Revenue: ' + min_date + ' ' + '($' + str(min_value) + ')')
+    
