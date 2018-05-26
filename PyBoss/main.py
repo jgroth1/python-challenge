@@ -80,7 +80,9 @@ us_state_abbrev = {
 }
 
 # set file path
-file = 'employee_data1.csv'
+file_name = 'employee_data2'
+form = '.csv'
+file = file_name + form
 file_path = os.path.join('../Data_Files/PyBoss/raw_data', file)
 
 # Open file with in the with operator and read using csv.reader
@@ -123,7 +125,10 @@ for i in range(len(ID)):
     new_employee_dict[header[5]] = State[i]
     new_employee_list.append(new_employee_dict)
 
-with open('new_employee_data.csv', 'w') as datafile:
+# write output file
+new = 'new_'
+file = new + file_name + form
+with open(file, 'w') as datafile:
     writer = csv.DictWriter(datafile, fieldnames=header)
 
     writer.writeheader()
