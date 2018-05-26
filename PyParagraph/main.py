@@ -24,8 +24,10 @@ import csv
 from statistics import mean
 
 # Sets file path
-filename = 'paragraph_2.txt'
-filepath = os.path.join('../Data_Files/PyParagraph/raw_data', filename)
+file_name = 'paragraph_2'
+form = '.txt'
+file = file_name + form
+filepath = os.path.join('../Data_Files/PyParagraph/raw_data', file)
 
 with open(filepath, newline='\n') as parfile:
     # using csv.reader with delimiter equal to a space the script is seperated
@@ -88,7 +90,11 @@ avg_word_length = round(mean(word_length), 2)
 # determine average sentence lenght in words
 avg_sent_length = mean(w_per_sentence)
 # print analysis results
-print('number of words: ' + str(num_words))
-print('number of sentences: ' + str(num_sentence))
+print('')
+print('Paragraph Analysis')
+print('----------------------------------')
+print('Approximate Word Count: ' + str(num_words))
+print('Approximate Sentence Count: ' + str(num_sentence))
 print('average letter count: ' + str(avg_word_length))
 print('average sentence length: ' + str(avg_sent_length))
+print('')
