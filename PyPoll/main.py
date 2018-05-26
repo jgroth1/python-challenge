@@ -24,8 +24,10 @@ import os
 import csv
 
 # Create file path
-filename = 'election_data_2.csv'
-filepath = os.path.join('../Data_Files/PyPoll/raw_data', filename)
+file_name = 'election_data_1'
+form = '.csv'
+file = file_name + form
+filepath = os.path.join('../Data_Files/PyPoll/raw_data', file)
 
 # open folder with 'with' command and read file using csv.reader
 with open(filepath, newline='') as electionfile:
@@ -73,3 +75,24 @@ print('-------------------')
 print('Winner: ' + winner)
 print('-------------------')
 print('')
+
+# write output file
+poll_results = '_poll_results'
+form = '.txt'
+file = file_name + poll_results + form
+with open(file, 'w') as outfile:
+    outfile.writelines('\n' + 'ELection Results')
+    outfile.writelines('\n' + '-------------------')
+    outfile.writelines('\n' + 'Total Votes: ' + str(num_votes))
+    outfile.writelines('\n' + '-------------------')
+    for candidate in candidates:
+        outfile.writelines(
+                        '\n' +
+                        candidate + ': ' 
+                        + str(round(votes_per_candidate[candidate][1], 2)) + ' '
+                        + '(' + str(votes_per_candidate[candidate][0]) + ')'
+                          )
+    outfile.writelines('\n' + '-------------------')
+    outfile.writelines('\n' + 'Winner: ' + winner)
+    outfile.writelines('\n' + '-------------------')
+    
