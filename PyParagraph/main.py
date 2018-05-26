@@ -24,7 +24,7 @@ import csv
 from statistics import mean
 
 # Sets file path
-file_name = 'paragraph_2'
+file_name = 'paragraph_1'
 form = '.txt'
 file = file_name + form
 filepath = os.path.join('../Data_Files/PyParagraph/raw_data', file)
@@ -95,6 +95,21 @@ print('Paragraph Analysis')
 print('----------------------------------')
 print('Approximate Word Count: ' + str(num_words))
 print('Approximate Sentence Count: ' + str(num_sentence))
-print('average letter count: ' + str(avg_word_length))
-print('average sentence length: ' + str(avg_sent_length))
+print('Average letter count: ' + str(avg_word_length))
+print('Average sentence length: ' + str(avg_sent_length))
 print('')
+
+lines = [
+    'Paragraph Analysis', 
+    '----------------------------------', 
+    'Approximate Word Count: ' + str(num_words), 
+    'Approximate Sentence Count: ' + str(num_sentence),
+    'Average letter count: ' + str(avg_word_length),
+    'Average sentence length: ' + str(avg_sent_length)
+    ]
+out = 'output_'
+analysis = '_analysis'
+file = out + file_name + analysis + form
+with open(file, 'w') as outfile:
+    for line in lines:
+        outfile.writelines('\n' + line)
